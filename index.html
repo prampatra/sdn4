@@ -4794,22 +4794,22 @@ function handleAttSearch(val) {
         let predikat = "D";
         let deskripsi = "";
 
-        if (totalSKU === 30 && totalXP >= 1000) {
+        if (totalSKU >= 18 && totalXP >= 700) {
           predikat = "A";
           deskripsi =
-            "Sangat Baik. Telah menyelesaikan seluruh 30 SKU Penggalang Ramu dengan tuntas. Menunjukkan kedisiplinan luar biasa, jiwa kepemimpinan tinggi, kehadiran latihan konsisten, serta berbudi luhur sesuai Dasa Dharma.";
-        } else if (totalSKU >= 20 || totalXP >= 600) {
+            "Luar biasa! Kamu adalah teladan sejati Pramuka Penggalang. Keaktifanmu mengumpulkan XP dan semangatmu menuntaskan SKU membuktikan jiwa pantang menyerah. Pertahankan prestasimu dan bersiaplah";
+        } else if (totalSKU >= 13 || totalXP >= 450) {
           predikat = "B";
           deskripsi =
-            "Baik. Telah menyelesaikan sebagian besar SKU Ramu. Menunjukkan kerja sama regu yang baik, aktif menyetorkan materi teknik pramuka dasar, serta beretika santun.";
-        } else if (totalSKU >= 10 || totalXP >= 400) {
+            "Hebat! Kamu telah menunjukkan kedisiplinan yang mantap dalam latihan. Sedikit lagi kamu bisa menyelesaikan seluruh SKU. Yuk, tingkatkan lagi semangat belajarmu agar semakin tangkas dan mandiri bersama regumu!";
+        } else if (totalSKU >= 8 || totalXP >= 200) {
           predikat = "C";
           deskripsi =
-            "Cukup. Telah menguasai materi dasar kepramukaan. Masih memerlukan konsistensi kehadiran mingguan dan dorongan motivasi dari pendamping regu.";
+            "Kamu sudah mulai melangkah, namun perjalanan petualanganmu masih panjang. Jangan ragu berlatih bersama teman. Mari lebih rajin hadir latihan setiap hari Rabu dan cicil pengisian SKU-mu agar lekas naik tingkat!";
         } else {
           predikat = "D";
           deskripsi =
-            "Perlu Bimbingan. Progres capaian SKU dasar masih minimal. Memerlukan bimbingan pendampingan intensif dari Kakak Pembina serta dukungan rekan sejawat.";
+            "Setiap pramuka tangguh selalu dimulai dari langkah pertama. Kakak Pembina yakin kamu punya potensi yang luar biasa. Yuk, mulai aktif datang latihan rutin dan jangan malu bertanya untuk mengisi SKU-mu. Kamu pasti bisa!";
         }
         return { predikat, deskripsi };
       }
@@ -4826,34 +4826,40 @@ function handleAttSearch(val) {
 																	<h3 class="title-font font-black text-lg text-slate-800">Cetak Penghargaan</h3>
 																	<p class="text-[10px] font-bold text-slate-500 uppercase">Pramuka Tergiat Berdasarkan Perolehan XP</p>
 																</div>
-																<div class="card-3d bg-white p-4 mb-5 border-l-4 border-l-amber-500">
-																	<div class="grid grid-cols-2 gap-3 mb-4">
-																		<div>
-																			<label class="block text-[10px] font-bold text-slate-500 mb-1">Periode Penghargaan</label>
-																			<select id="award-month" class="w-full text-xs font-bold border-2 border-slate-200 rounded-xl p-2 bg-slate-50">
-																				<option value="all">Keseluruhan (All-Time)</option>
-																				<option value="01">Januari</option>
-																				<option value="02">Februari</option>
-																				<option value="03">Maret</option>
-																				<option value="04">April</option>
-																				<option value="05">Mei</option>
-																				<option value="06">Juni</option>
-																				<option value="07">Juli</option>
-																				<option value="08">Agustus</option>
-																				<option value="09">September</option>
-																				<option value="10">Oktober</option>
-																				<option value="11">November</option>
-																				<option value="12">Desember</option>
-																			</select>
-																		</div>
-																		<div class="flex items-end">
-																			<button onclick="exportPenghargaanPNG()" class="btn-3d btn-amber w-full text-[10px] h-10 min-h-0">
-																				<i class="fa-solid fa-image mr-1"></i> CETAK GAMBAR (PNG)
-																			</button>
-																		</div>
-																	</div>
-																</div>
-																<div class="mb-4">
+															<div class="card-3d bg-white p-4 mb-5 border-l-4 border-l-amber-500">
+    <div class="grid grid-cols-2 gap-3 mb-4">
+        <div>
+            <label class="block text-[10px] font-bold text-slate-500 mb-1">Periode Penghargaan</label>
+            <select id="award-month" onchange="previewPenghargaan()" class="w-full text-xs font-bold border-2 border-slate-200 rounded-xl p-2 bg-slate-50">
+                <option value="all">Keseluruhan (All-Time)</option>
+                <option value="01">Januari</option>
+                <option value="02">Februari</option>
+                <option value="03">Maret</option>
+                <option value="04">April</option>
+                <option value="05">Mei</option>
+                <option value="06">Juni</option>
+                <option value="07">Juli</option>
+                <option value="08">Agustus</option>
+                <option value="09">September</option>
+                <option value="10">Oktober</option>
+                <option value="11">November</option>
+                <option value="12">Desember</option>
+            </select>
+        </div>
+        <div class="flex flex-col justify-end gap-1.5">
+            <button onclick="exportPenghargaanPNG()" class="btn-3d btn-amber w-full text-[9px] h-8 min-h-0 py-0">
+                <i class="fa-solid fa-image mr-1"></i> PIAGAM TOP 3 (P/I)
+            </button>
+            <button onclick="exportTop10PNG()" class="btn-3d btn-indigo w-full text-[9px] h-8 min-h-0 py-0">
+                <i class="fa-solid fa-trophy mr-1"></i> CETAK TOP 10 (GABUNGAN)
+            </button>
+        </div>
+    </div>
+</div>
+<!-- Wadah Preview Live Peringkat -->
+<div id="award-preview-container" class="mt-4 pt-4 border-t border-slate-200 hidden"></div>
+</div>
+<div class="mb-4">
 																	<h3 class="title-font font-black text-lg text-slate-800">Rapor Perkembangan</h3>
 																	<p class="text-[10px] font-bold text-slate-500 uppercase">Analisis Predikat Untuk Laporan Pembina</p>
 																</div>
@@ -4937,6 +4943,7 @@ function handleAttSearch(val) {
             </div>`;
         });
         el.innerHTML = html + `</div>`;
+        setTimeout(() => previewPenghargaan(), 100);
       }
 
       function filterRapor() {
@@ -4968,6 +4975,50 @@ function handleAttSearch(val) {
       }
       
       // LOGIKA KALKULASI PENGHARGAAN & CETAK PNG
+      function previewPenghargaan() {
+        const monthCode = document.getElementById("award-month").value;
+        const container = document.getElementById("award-preview-container");
+        
+        if (!container) return;
+        container.classList.remove("hidden");
+
+        let studentsScores = state.students.map(s => {
+            return { ...s, awardScore: calculateStudentScore(s, monthCode) };
+        });
+
+        let topPutra = studentsScores.filter(s => s.gender === 'Putra' && s.awardScore > 0).sort((a, b) => b.awardScore - a.awardScore).slice(0, 3);
+        let topPutri = studentsScores.filter(s => s.gender === 'Putri' && s.awardScore > 0).sort((a, b) => b.awardScore - a.awardScore).slice(0, 3);
+        
+        // Tambahan: Top 10 Gabungan Keseluruhan
+        let topCombined = studentsScores.filter(s => s.awardScore > 0).sort((a, b) => b.awardScore - a.awardScore).slice(0, 10);
+
+        let html = '<h4 class="font-extrabold text-slate-800 text-xs mb-3 uppercase text-center"><i class="fa-solid fa-ranking-star text-amber-500"></i> Peringkat Bulan Ini</h4><div class="grid grid-cols-2 gap-2">';
+        
+        html += '<div class="bg-blue-50/50 p-2 rounded-xl border border-blue-200"><h5 class="text-[10px] font-black text-blue-800 mb-2 border-b border-blue-200 pb-1">👦 TOP PUTRA</h5><div class="space-y-1.5">';
+        if (topPutra.length === 0) html += '<div class="text-[9px] text-slate-400 italic text-center py-2">Belum ada data</div>';
+        topPutra.forEach((s, i) => {
+            html += `<div class="flex justify-between items-center bg-white p-1.5 rounded border border-blue-100 shadow-sm"><span class="text-[9px] font-bold text-slate-700 truncate flex-1 mr-1">#${i+1} ${s.name}</span><span class="text-[9px] font-black text-blue-600 bg-blue-100 px-1.5 py-0.5 rounded shrink-0">+${s.awardScore} XP</span></div>`;
+        });
+        html += '</div></div>';
+
+        html += '<div class="bg-pink-50/50 p-2 rounded-xl border border-pink-200"><h5 class="text-[10px] font-black text-pink-800 mb-2 border-b border-pink-200 pb-1">👧 TOP PUTRI</h5><div class="space-y-1.5">';
+        if (topPutri.length === 0) html += '<div class="text-[9px] text-slate-400 italic text-center py-2">Belum ada data</div>';
+        topPutri.forEach((s, i) => {
+            html += `<div class="flex justify-between items-center bg-white p-1.5 rounded border border-pink-100 shadow-sm"><span class="text-[9px] font-bold text-slate-700 truncate flex-1 mr-1">#${i+1} ${s.name}</span><span class="text-[9px] font-black text-pink-600 bg-pink-100 px-1.5 py-0.5 rounded shrink-0">+${s.awardScore} XP</span></div>`;
+        });
+        html += '</div></div></div>';
+
+        // Tambahan: Render Preview Top 10 Gabungan
+        html += '<div class="mt-3 bg-indigo-50/50 p-2 rounded-xl border border-indigo-200"><h5 class="text-[10px] font-black text-indigo-800 mb-2 border-b border-indigo-200 pb-1">🏆 TOP 10 KESELURUHAN (PUTRA & PUTRI)</h5><div class="space-y-1.5">';
+        if (topCombined.length === 0) html += '<div class="text-[9px] text-slate-400 italic text-center py-2">Belum ada data</div>';
+        topCombined.forEach((s, i) => {
+            html += `<div class="flex justify-between items-center bg-white p-1.5 rounded border border-indigo-100 shadow-sm"><span class="text-[9px] font-bold text-slate-700 truncate flex-1 mr-1">#${i+1} ${s.name} <span class="text-[8px] text-slate-400">(${s.gender === 'Putra' ? 'L' : 'P'})</span></span><span class="text-[9px] font-black text-indigo-600 bg-indigo-100 px-1.5 py-0.5 rounded shrink-0">+${s.awardScore} XP</span></div>`;
+        });
+        html += '</div></div>';
+
+        container.innerHTML = html;
+      }
+
       function calculateStudentScore(student, monthCode) {
         if (monthCode === 'all') return student.lifetimeXP || 0;
         let total = 0;
@@ -5011,75 +5062,89 @@ function handleAttSearch(val) {
         let topPutra = studentsScores.filter(s => s.gender === 'Putra' && s.awardScore > 0).sort((a, b) => b.awardScore - a.awardScore).slice(0, 3);
         let topPutri = studentsScores.filter(s => s.gender === 'Putri' && s.awardScore > 0).sort((a, b) => b.awardScore - a.awardScore).slice(0, 3);
 
-        const container = document.createElement('div');
-        container.style.position = 'absolute';
-        container.style.left = '-9999px';
-        container.style.top = '0';
-        container.style.width = '1200px';
-        container.style.background = '#f8fafc'; // Warna background bersih dan simpel
-        container.style.padding = '50px';
-        container.style.fontFamily = '"Nunito", sans-serif';
-        container.style.boxSizing = 'border-box';
-
         const getRankHtml = (students, type) => {
           let html = '';
-          const rankColors = ['#eab308', '#94a3b8', '#b45309']; 
-          const themeColor = type === 'Putra' ? '#3b82f6' : '#ec4899';
+          const rankColors = ['#d97706', '#94a3b8', '#b45309']; // Emas, Perak, Perunggu
+          const themeColor = type === 'Putra' ? '#1e3a8a' : '#be185d'; // Navy untuk Putra, Rose untuk Putri
 
           for (let i = 0; i < 3; i++) {
             if (!students[i]) continue;
             const s = students[i];
-            const att = getStudentAttendanceStats(s.id);
-            const skuCount = s.completedQuests.filter((q) => q.status === "completed").length;
             const avatarStr = s.avatarEmoji.startsWith('data:image') ? `<img src="${s.avatarEmoji}" style="width:100%; height:100%; object-fit:cover;">` : s.avatarEmoji;
 
             html += `
-              <div style="background: white; border-radius: 16px; padding: 20px; margin-bottom: 20px; display: flex; align-items: center; border-left: 8px solid ${rankColors[i]}; box-shadow: 0 4px 15px rgba(0,0,0,0.05); position: relative;">
+              <div style="display: flex; align-items: center; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 12px; margin-bottom: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
                 
-                <div style="width: 45px; height: 45px; background: ${rankColors[i]}; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; font-weight: 800; color: white; margin-right: 20px;">#${i + 1}</div>
+                <div style="width: 40px; height: 40px; background: ${rankColors[i]}; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: 800; color: white; margin-right: 15px; flex-shrink: 0;">#${i + 1}</div>
 
-                <div style="width: 70px; height: 70px; border-radius: 50%; background: #f1f5f9; border: 3px solid ${themeColor}; overflow: hidden; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; flex-shrink: 0;">
+                <div style="width: 50px; height: 50px; border-radius: 50%; background: #f8fafc; border: 2px solid ${themeColor}; overflow: hidden; display: flex; align-items: center; justify-content: center; font-size: 2rem; flex-shrink: 0;">
                   ${avatarStr}
                 </div>
 
-                <div style="margin-left: 20px; flex: 1;">
-                  <div style="font-size: 1.4rem; font-weight: 800; color: #1e293b; margin-bottom: 4px; font-family:'Fredoka', sans-serif;">${s.name}</div>
-                  <div style="font-size: 1rem; font-weight: 700; color: #64748b; margin-bottom: 8px;">Regu ${s.regu}</div>
-                  <div style="display: flex; gap: 10px;">
-                    <span style="background: #ecfdf5; color: #059669; padding: 4px 12px; border-radius: 8px; font-weight: 700; font-size: 0.9rem;">Hadir: ${att.percent}%</span>
-                    <span style="background: ${type === 'Putra' ? '#eff6ff' : '#fdf2f8'}; color: ${themeColor}; padding: 4px 12px; border-radius: 8px; font-weight: 700; font-size: 0.9rem;">SKU: ${skuCount}/30</span>
-                    <span style="background: #fef3c7; color: #d97706; padding: 4px 12px; border-radius: 8px; font-weight: 700; font-size: 0.9rem;">Total: ${s.awardScore} XP</span>
-                  </div>
+                <div style="margin-left: 15px; flex: 1;">
+                  <div style="font-size: 1.2rem; font-weight: 800; color: #1e293b; margin-bottom: 2px; text-transform: uppercase;">${s.name}</div>
+                  <div style="font-size: 0.9rem; font-weight: 700; color: #64748b;">Regu ${s.regu}</div>
+                </div>
+                
+                <div style="text-align: right;">
+                  <div style="font-size: 1.2rem; font-weight: 900; color: #d97706;">${s.awardScore}</div>
+                  <div style="font-size: 0.7rem; color: #94a3b8; font-weight: bold; text-transform: uppercase;">Total XP</div>
                 </div>
               </div>`;
           }
-          if (students.length === 0) html = `<div style="text-align:center; padding: 30px; font-weight:bold; color:#94a3b8; font-size: 1.1rem;">Belum ada data aktivitas.</div>`;
+          if (students.length === 0) html = `<div style="text-align:center; padding: 30px; font-weight:bold; color:#94a3b8; font-size: 1rem; font-style: italic;">Belum ada data aktivitas.</div>`;
           return html;
         };
 
         const today = new Date();
         const dateStr = `${today.getDate()} ${['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'][today.getMonth()]} ${today.getFullYear()}`;
 
+        const container = document.createElement('div');
+        Object.assign(container.style, {
+            position: 'absolute',
+            left: '-9999px',
+            top: '0',
+            width: '1000px',
+            backgroundColor: '#ffffff',
+            padding: '40px',
+            boxSizing: 'border-box',
+            fontFamily: '"Nunito", sans-serif',
+            border: '15px solid #1e3a8a',
+            outline: '4px solid #f59e0b',
+            outlineOffset: '-25px'
+        });
+
         container.innerHTML = `
-          <div style="text-align:center; margin-bottom: 40px;">
-            <h1 style="font-family:'Fredoka', sans-serif; font-size: 3.5rem; color: #1e293b; margin:0; letter-spacing: 1px;">PENGHARGAAN PRAMUKA</h1>
-            <p style="font-size: 1.2rem; color: #64748b; margin: 10px 0 0 0; font-weight: 700; text-transform: uppercase;">PERIODE AKTIVITAS: ${monthLabel}</p>
+          <div style="text-align:center; margin-bottom: 30px; margin-top: 15px;">
+            <div style="font-size: 3rem; margin-bottom: 5px;">⚜️</div>
+            <h1 style="font-family:'Fredoka', sans-serif; font-size: 2.8rem; color: #1e3a8a; margin:0; letter-spacing: 2px; text-transform: uppercase;">PIAGAM PENGHARGAAN</h1>
+            <h2 style="font-size: 1.4rem; color: #f59e0b; margin: 5px 0 0 0; font-weight: 800; text-transform: uppercase;">PRAMUKA TERGIAT - ${monthLabel}</h2>
+            <p style="font-size: 1rem; color: #64748b; margin-top: 5px; font-weight: bold;">Gudep 09.011 - 09.012 Pangkalan SDN 4 Rambutan</p>
           </div>
 
-          <div style="display: flex; justify-content: space-between; gap: 40px; margin-bottom: 30px;">
-            <div style="flex: 1;">
-              <h2 style="font-family:'Fredoka', sans-serif; color: #3b82f6; font-size:1.8rem; margin-bottom: 20px; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px;"><i class="fa-solid fa-mars"></i> TERGIAT PUTRA</h2>
+          <div style="display: flex; justify-content: space-between; gap: 40px; margin-bottom: 20px; padding: 0 20px;">
+            <div style="flex: 1; background: #f8fafc; padding: 20px; border-radius: 16px; border-top: 5px solid #1e3a8a;">
+              <h3 style="text-align: center; font-family:'Fredoka', sans-serif; color: #1e3a8a; font-size: 1.4rem; margin-top: 0; margin-bottom: 20px;"><i class="fa-solid fa-mars"></i> PUTRA</h3>
               ${getRankHtml(topPutra, 'Putra')}
             </div>
 
-            <div style="flex: 1;">
-              <h2 style="font-family:'Fredoka', sans-serif; color: #ec4899; font-size:1.8rem; margin-bottom: 20px; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px;"><i class="fa-solid fa-venus"></i> TERGIAT PUTRI</h2>
+            <div style="flex: 1; background: #f8fafc; padding: 20px; border-radius: 16px; border-top: 5px solid #be185d;">
+              <h3 style="text-align: center; font-family:'Fredoka', sans-serif; color: #be185d; font-size: 1.4rem; margin-top: 0; margin-bottom: 20px;"><i class="fa-solid fa-venus"></i> PUTRI</h3>
               ${getRankHtml(topPutri, 'Putri')}
             </div>
           </div>
 
-          <div style="margin-top: 30px; text-align: center; border-top: 2px dashed #cbd5e1; padding-top: 20px; color: #64748b; font-size: 1rem; font-weight: 600;">
-              Dicetak pada: ${dateStr} | Gugus Depan SDN 4 Rambutan
+          <div style="display: flex; justify-content: space-between; margin-top: 40px; padding: 0 60px 20px 60px;">
+            <div style="text-align: center;">
+                <p style="margin: 0; font-size: 1rem; color: #475569;">Mengetahui,<br>Kamabigus</p>
+                <div style="height: 70px;"></div>
+                <p style="margin: 0; font-weight: bold; font-size: 1.1rem; color: #1e293b; text-decoration: underline;">Boyman, S.Pd</p>
+            </div>
+            <div style="text-align: center;">
+                <p style="margin: 0; font-size: 1rem; color: #475569;">Rambutan, ${dateStr}<br>Pembina Pramuka</p>
+                <div style="height: 70px;"></div>
+                <p style="margin: 0; font-weight: bold; font-size: 1.1rem; color: #1e293b; text-decoration: underline;">Tri Sulistiono, S.Pd</p>
+            </div>
           </div>
         `;
 
@@ -5092,6 +5157,113 @@ function handleAttSearch(val) {
             link.href = canvas.toDataURL('image/png');
             link.click();
             showToast("Gambar Penghargaan Berhasil Dicetak!", "🎉");
+        } catch (err) {
+            console.error(err);
+            showToast("Gagal mencetak gambar.", "❌");
+        } finally {
+            document.body.removeChild(container);
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+        }
+      }
+
+      async function exportTop10PNG() {
+        const btn = document.querySelector('button[onclick="exportTop10PNG()"]');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-1"></i> MEMPROSES...';
+        btn.disabled = true;
+
+        const monthCode = document.getElementById("award-month").value;
+        const monthLabel = document.getElementById("award-month").options[document.getElementById("award-month").selectedIndex].text;
+
+        let studentsScores = state.students.map(s => {
+            return { ...s, awardScore: calculateStudentScore(s, monthCode) };
+        });
+
+        // Sort Top 10 Gabungan
+        let top10 = studentsScores.filter(s => s.awardScore > 0).sort((a, b) => b.awardScore - a.awardScore).slice(0, 10);
+
+        const container = document.createElement('div');
+        Object.assign(container.style, {
+            position: 'absolute',
+            left: '-9999px',
+            top: '0',
+            width: '850px',
+            backgroundColor: '#ffffff',
+            padding: '40px 50px',
+            boxSizing: 'border-box',
+            fontFamily: '"Nunito", sans-serif',
+            border: '10px solid #4f46e5',
+            outline: '3px solid #818cf8',
+            outlineOffset: '-18px'
+        });
+
+        const today = new Date();
+        const dateStr = `${today.getDate()} ${['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'][today.getMonth()]} ${today.getFullYear()}`;
+
+        let html = `
+          <div style="text-align:center; margin-bottom: 30px;">
+            <div style="font-size: 3rem; margin-bottom: 5px;">🏆</div>
+            <h1 style="font-family:'Fredoka', sans-serif; font-size: 2.5rem; color: #312e81; margin:0; letter-spacing: 2px; text-transform: uppercase;">TOP 10 PRAMUKA TERGIAT</h1>
+            <h2 style="font-size: 1.2rem; color: #4f46e5; margin: 5px 0 0 0; font-weight: 800; text-transform: uppercase;">PERIODE AKTIVITAS: ${monthLabel}</h2>
+            <p style="font-size: 1rem; color: #64748b; margin-top: 5px; font-weight: bold;">Gudep 09.011 - 09.012 Pangkalan SDN 4 Rambutan</p>
+          </div>
+          <div style="background: #f8fafc; padding: 25px; border-radius: 16px; border: 2px solid #e0e7ff; margin-bottom: 30px;">
+        `;
+
+        if (top10.length === 0) {
+            html += `<div style="text-align:center; padding: 30px; font-weight:bold; color:#94a3b8; font-size: 1.2rem;">Belum ada data aktivitas.</div>`;
+        } else {
+            top10.forEach((s, i) => {
+                const rankColor = i === 0 ? '#d97706' : i === 1 ? '#94a3b8' : i === 2 ? '#b45309' : '#334155'; // Gold, Silver, Bronze, and Slate
+                const themeColor = s.gender === 'Putra' ? '#1e3a8a' : '#be185d'; 
+                const avatarStr = s.avatarEmoji.startsWith('data:image') ? `<img src="${s.avatarEmoji}" style="width:100%; height:100%; object-fit:cover;">` : s.avatarEmoji;
+
+                html += `
+                  <div style="display: flex; align-items: center; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 12px 20px; margin-bottom: 12px; box-shadow: 0 3px 6px rgba(0,0,0,0.04);">
+                    <div style="width: 45px; height: 45px; background: ${rankColor}; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; font-weight: 800; color: white; margin-right: 20px; flex-shrink: 0;">#${i + 1}</div>
+                    <div style="width: 55px; height: 55px; border-radius: 50%; background: #f8fafc; border: 2px solid ${themeColor}; overflow: hidden; display: flex; align-items: center; justify-content: center; font-size: 2rem; flex-shrink: 0;">
+                      ${avatarStr}
+                    </div>
+                    <div style="margin-left: 20px; flex: 1; display: flex; align-items: center; justify-content: space-between;">
+                      <div>
+                        <div style="font-size: 1.4rem; font-weight: 800; color: #1e293b; text-transform: uppercase;">${s.name}</div>
+                        <div style="font-size: 1rem; font-weight: 700; color: #64748b;">Regu ${s.regu} • ${s.gender}</div>
+                      </div>
+                      <div style="text-align: right;">
+                        <div style="font-size: 1.6rem; font-weight: 900; color: #4f46e5;">${s.awardScore} XP</div>
+                      </div>
+                    </div>
+                  </div>`;
+            });
+        }
+
+        html += `
+          </div>
+          <div style="display: flex; justify-content: space-between; padding: 0 40px;">
+            <div style="text-align: center;">
+                <p style="margin: 0; font-size: 1rem; color: #475569;">Mengetahui,<br>Kamabigus</p>
+                <div style="height: 70px;"></div>
+                <p style="margin: 0; font-weight: bold; font-size: 1.1rem; color: #1e293b; text-decoration: underline;">Boyman, S.Pd</p>
+            </div>
+            <div style="text-align: center;">
+                <p style="margin: 0; font-size: 1rem; color: #475569;">Rambutan, ${dateStr}<br>Pembina Pramuka</p>
+                <div style="height: 70px;"></div>
+                <p style="margin: 0; font-weight: bold; font-size: 1.1rem; color: #1e293b; text-decoration: underline;">Tri Sulistiono, S.Pd</p>
+            </div>
+          </div>
+        `;
+
+        container.innerHTML = html;
+        document.body.appendChild(container);
+
+        try {
+            const canvas = await html2canvas(container, { scale: 2, useCORS: true, backgroundColor: null });
+            const link = document.createElement('a');
+            link.download = `Top10_Pramuka_${monthLabel.replace(/ /g, '_')}.png`;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+            showToast("Gambar Top 10 Berhasil Dicetak!", "🎉");
         } catch (err) {
             console.error(err);
             showToast("Gagal mencetak gambar.", "❌");
